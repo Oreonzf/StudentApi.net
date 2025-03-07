@@ -11,16 +11,17 @@ public class Student
 
     [Required]
     [MinLength(3)]
-    public string Nome { get; set; }
+    public string Nome { get; set; } = string.Empty;
 
     [Required]
     [MinLength(3)]
-    public string Sobrenome { get; set; }
+    public string Sobrenome { get; set; } = string.Empty;
 
     [Required]
     [MinLength(3)]
     [Column(TypeName = "varchar(255)")]
-    public string Matricula { get; set; }
+    public string Matricula { get; set; } = string.Empty;
 
-    public List<string> Telefones { get; set; } = new List<string>();
+    [Column(TypeName = "varchar(20)")] // Adjust length as needed
+    public string Telefone { get; set; } = string.Empty; // Single phone number as a string
 }
