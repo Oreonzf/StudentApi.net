@@ -1,0 +1,22 @@
+﻿version: '3.8'
+
+services:
+  studentapi:
+    build:
+      context: .
+      dockerfile: StudentApi/Dockerfile
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: studentdb
+      MYSQL_USER: studentuser
+      MYSQL_PASSWORD: studentpass
+    ports:
+      - "3307:3306"
